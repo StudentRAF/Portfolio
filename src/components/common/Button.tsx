@@ -3,14 +3,19 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 
 import { cn } from "@/utils/utils.ts"
+import ArrowUpRightIcon from "@/assets/icons/ArrowUpRight.tsx";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium transition-all outline-none",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-full transition-all outline-none hover:cursor-pointer",
   {
     variants: {
       variant: {
         default:
-          "bg-gray-850 text-gray-100 shadow-xs hover:bg-gray-700 hover:cursor-pointer",
+          "bg-gray-850 text-normal-14 text-gray-100 hover:bg-gray-700 hover:shadow-small",
+        navigation:
+          "bg-gray-850 text-normal-14 text-gray-100 hover:bg-gray-700",
+        link:
+          "bg-transparent text-normal-14 text-gray-100 hover:bg-gray-750"
       },
       size: {
         default: "h-8 px-5 py-1.5",
@@ -28,6 +33,7 @@ const Button = ({
   variant,
   size,
   asChild = false,
+  children,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
@@ -38,9 +44,15 @@ const Button = ({
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({variant, size, className}))}
-      {...props}
-    />
+      className={cn(
+        buttonVariants({ variant, size }),
+        variant == "link" && "py-3 pl-6 pr-5 gap-1.5",
+        className
+      )}
+      {...props}>
+      {children}
+      {variant == "link" && <ArrowUpRightIcon/>}
+    </Comp>
   )
 }
 
