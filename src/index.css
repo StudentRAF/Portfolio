@@ -1,7 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-cyan-500: #14F0E5;
+
+  --color-deep-blue-500: #2042ED;
+
+  --color-gray-100: #E1E0E1;
+  --color-gray-400: #8B8A8B;
+  --color-gray-500: #727272;
+  --color-gray-600: #444344;
+  --color-gray-650: #363636;
+  --color-gray-700: #2A292A;
+  --color-gray-750: #242324;
+  --color-gray-800: #1F1E1F;
+  --color-gray-850: #1B1A1B;
+  --color-gray-900: #131213;
+
+  --color-green-400: #66EF00;
+
+  --color-magenta-500: #CD0AFE;
+
+  --color-orange-400: #FFD433;
+  --color-orange-500: #FEC50A;
+
+  --color-red-400: #FE1131;
+
+  --font-sans: "DM Sans", sans-serif;
+}
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -123,7 +153,7 @@
   }
 
   html {
-    @apply min-h-screen bg-neutral-900;
+    @apply min-h-screen bg-gray-900 font-sans;
   }
 
   body {
