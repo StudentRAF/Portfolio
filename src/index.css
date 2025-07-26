@@ -35,6 +35,8 @@
   --color-deep-blue-500: #2042ED;
 
   --color-gray-100: #E1E0E1;
+  --color-gray-250: #AFAEAF;
+  --color-gray-350: #919091;
   --color-gray-400: #8B8A8B;
   --color-gray-500: #727272;
   --color-gray-600: #444344;
@@ -97,6 +99,14 @@
   /* Shadows */
   --shadow-small:  2px 2px 8px 0 #00000026;
   --shadow-medium: 4px 4px 12px 0 #00000040;
+
+  /* Spacing */
+  --spacing-280: 70rem;
+  --spacing-184: 46rem;
+  --spacing-120: 30rem;
+
+  /* Text Shadow */
+  --text-shadow-hero: 0 4px 4px #00000040;
 }
 
 @theme inline {
