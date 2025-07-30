@@ -1,67 +1,44 @@
-import { cn, type OpenTarget } from "@/utils/utils.ts";
+import { cn } from "@/lib/utils.ts";
 import type { ReactNode } from "react";
 import ProjectPreview from "@/components/projects/ProjectPreview.tsx";
 import ProjectHeader from "@/components/projects/ProjectHeader.tsx";
-
-export type ProjectAccentColor = "red" | "magenta" | "blue" | "cyan" | "green" | "yellow";
+import type { ProjectType } from "@/types/project.ts";
+import { navigateToProject } from "@/lib/data.ts";
 
 export interface ProjectProps {
   className?: string;
-  name?: string;
-  description?: string;
-  technologies?: string[];
-  accentColor?: ProjectAccentColor;
-  repositoryUrl?: string;
+  project: ProjectType;
   children?: ReactNode;
 }
 
-
 const Project = ({
   className,
-  name,
-  description,
-  technologies,
-  accentColor,
-  repositoryUrl,
+  project,
   children
 }: ProjectProps) => {
-  const openTarget: OpenTarget = "_blank";
-  const features = "noopener, noreferrer";
-
-  const onClick = () => {
-    if (!repositoryUrl)
-      return;
-
-    window.open(repositoryUrl, openTarget, features)
-  }
-
   return (
     <div
       className={cn(
         "w-280 p-2 border rounded-8 border-gray-750 bg-gray-850 group",
-        repositoryUrl && "cursor-pointer",
+        project.repositoryUrl && "cursor-pointer",
         className
       )}
-      onClick={onClick}
+      onClick={() => navigateToProject(project)}
     >
       <div className={cn(
         "relative flex flex-col w-full h-fit px-12 pt-8 pb-0 border rounded-6 border-gray-700 bg-gray-800 overflow-hidden transition-all duration-500",
-        accentColor === "red" && "group-hover:bg-red-500/8",
-        accentColor === "magenta" && "group-hover:bg-magenta-500/8",
-        accentColor === "blue" && "group-hover:bg-deep-blue-500/8",
-        accentColor === "cyan" && "group-hover:bg-cyan-500/8",
-        accentColor === "green" && "group-hover:bg-green-500/8",
-        accentColor === "yellow" && "group-hover:bg-orange-500/8",
+        project.accentColor === "red" && "group-hover:bg-red-500/8",
+        project.accentColor === "magenta" && "group-hover:bg-magenta-500/8",
+        project.accentColor === "blue" && "group-hover:bg-deep-blue-500/8",
+        project.accentColor === "cyan" && "group-hover:bg-cyan-500/8",
+        project.accentColor === "green" && "group-hover:bg-green-500/8",
+        project.accentColor === "yellow" && "group-hover:bg-orange-500/8",
       )}>
-        <ProjectHeader
-          name={name}
-          description={description}
-          technologies={technologies}
-        />
+        <ProjectHeader project={project}/>
         <div className="relative w-full h-136 z-20">
           <ProjectPreview
             className="absolute top-0 left-0 mt-6 group-hover:mt-3 transition-all duration-500"
-            repositoryUrl={repositoryUrl}
+            project={project}
           >
             {children}
           </ProjectPreview>

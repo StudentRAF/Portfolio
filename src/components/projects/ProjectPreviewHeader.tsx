@@ -1,12 +1,13 @@
-import { cn } from "@/utils/utils.ts";
+import { cn } from "@/lib/utils.ts";
 import CircleIcon from "@/assets/icons/Circle.tsx";
+import type { ProjectType } from "@/types/project.ts";
 
 export interface ProjectPreviewHeaderProps {
   className?: string;
-  repositoryUrl?: string;
+  project: ProjectType;
 }
 
-const ProjectPreviewHeader = ({ className, repositoryUrl }: ProjectPreviewHeaderProps) => {
+const ProjectPreviewHeader = ({ className, project }: ProjectPreviewHeaderProps) => {
   return (
     <div className={cn(
       "flex w-full h-fit px-6 py-3 gap-6 bg-gray-850 items-center",
@@ -19,7 +20,7 @@ const ProjectPreviewHeader = ({ className, repositoryUrl }: ProjectPreviewHeader
       </div>
 
       <span className="flex w-full h-5 px-4 bg-gray-700 rounded-full text-small-11 justify-center items-center text-gray-350">
-        {repositoryUrl}
+        {project.repositoryUrl}
       </span>
 
       <div className="flex flex-col gap-0.5">

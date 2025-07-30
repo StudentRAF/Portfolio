@@ -1,4 +1,4 @@
-import { cn } from "@/utils/utils.ts";
+import { cn } from "@/lib/utils.ts";
 import HeroIllustration from "@/assets/Illustrations/Hero.tsx";
 
 export interface HeroProps {

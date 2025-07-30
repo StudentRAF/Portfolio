@@ -1,4 +1,6 @@
-import { cn, type OpenTarget } from "@/utils/utils.ts";
+import { cn } from "@/lib/utils.ts";
+import { ApplicationContext, type ApplicationContextData } from "@/lib/context.ts";
+import { useContext } from "react";
 import { Button } from "@/components/common/Button.tsx";
 
 export interface LinksProps {
@@ -6,42 +8,22 @@ export interface LinksProps {
 }
 
 const Links = ({ className }: LinksProps) => {
-  const openTarget: OpenTarget = "_blank";
-  const features = "noopener, noreferrer";
-  const githubUrl = "https://github.com/StudentRAF";
-  const linkedInUrl = undefined;
-
-  const onGitHubClick = () => {
-    if (!githubUrl)
-      return;
-
-    window.open(githubUrl, openTarget, features)
-  }
-
-  const onLinkedInClick = () => {
-    if (!linkedInUrl)
-      return;
-
-    window.open(linkedInUrl, openTarget, features)
-  }
+  const application: ApplicationContextData | undefined = useContext(ApplicationContext);
 
   return (
     <div className={cn(
       "flex w-fit h-fit px-4 py-3 bg-transparent gap-1",
       className
     )}>
-      <Button
-        variant="link"
-        onClick={onGitHubClick}
-      >
-        GitHub
-      </Button>
-      <Button
-        variant="link"
-        onClick={onLinkedInClick}
-      >
-        LinkedIn
-      </Button>
+      {application?.data?.contacts?.map((contact, index) => (
+        <Button
+          key={index}
+          variant="link"
+          onClick={contact.navigate}
+        >
+          {contact.name}
+        </Button>
+      ))}
     </div>
   );
 }

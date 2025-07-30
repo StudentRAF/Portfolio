@@ -1,16 +1,30 @@
 import Header from "@/components/header/Header.tsx";
 import Hero from "@/components/hero/Hero.tsx";
 import Projects from "@/components/projects/Projects.tsx";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { ApplicationContext, type ApplicationData, getDefaultApplicationData } from "@/lib/context.ts";
+import { createContacts, createNavigations, createProjects } from "@/lib/data.ts";
 
 function App() {
+  const [data, setData] = useState<ApplicationData | undefined>(getDefaultApplicationData);
   const projectsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => setData(prevState => (
+    {
+      ...prevState,
+      projects: createProjects(),
+      contacts: createContacts(),
+      navigations: createNavigations({ projectsRef })
+    }
+  )), [])
 
   return (
     <>
-      <Header pageRefs={{ projectsRef }}/>
-      <Hero/>
-      <Projects ref={projectsRef}/>
+      <ApplicationContext.Provider value={{ data, setData }}>
+        <Header/>
+        <Hero/>
+        <Projects ref={projectsRef}/>
+      </ApplicationContext.Provider>
     </>
   )
 }
