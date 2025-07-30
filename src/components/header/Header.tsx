@@ -3,7 +3,6 @@ import Profile from "@/components/header/Profile.tsx";
 import { cn } from "@/lib/utils.ts";
 import Links from "@/components/header/Links.tsx";
 
-
 export interface HeaderProps {
   className?: string;
 }
