@@ -68,6 +68,7 @@ const Projects = forwardRef<HTMLDivElement, ProjectsProps>(({ className }, ref) 
         name="Gym App"
         description="Gym App is a web application that supports multiple gyms through a modular architecture. It is designed for managing gym operations, including training scheduling and registration. The system features a content management system for employees to update training sessions, and a separate site for gym members to browse and register for activities."
         technologies={["Java", "Spring Boot", "MySQL", "TypeScript", "React"]}
+        repositoryUrl="https://github.com/StudentRAF/GymMicroservices"
         accentColor="yellow"
       >
         <img
