@@ -1,16 +1,21 @@
 import { cn } from "@/utils/utils.ts";
 import Project from "@/components/projects/Project.tsx";
+import { forwardRef } from "react";
 
 export interface ProjectsProps {
   className?: string;
 }
 
-const Projects = ({ className }: ProjectsProps) => {
+const Projects = forwardRef<HTMLDivElement, ProjectsProps>(({ className }, ref) => {
   return (
-    <div className={cn(
-      "flex flex-col items-center px-auto py-12 gap-16",
-      className
-    )}>
+    <div
+      id="projects"
+      ref={ref}
+      className={cn(
+        "flex flex-col items-center px-auto py-12 gap-16 scroll-mt-16",
+        className
+      )
+    }>
       <Project
         name="Uwubank"
         description="Uwubank is a microservice-based system that implements core banking and trading functionalities. The banking module supports multi-currency account management, currency exchange, transactional operations, and loan handling. The stock exchange module provides access to historical securities data and enables real-time trading through a low-latency, in-memory caching mechanism."
@@ -83,6 +88,8 @@ const Projects = ({ className }: ProjectsProps) => {
       </Project>
     </div>
   );
-};
+});
+
+Projects.displayName = 'Projects';
 
 export default Projects;
