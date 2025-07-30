@@ -30,9 +30,9 @@
 
 @theme {
   /* Colors */
-  --color-cyan-500: #14F0E5;
+  --color-cyan-500: #16F5F5;
 
-  --color-deep-blue-500: #2042ED;
+  --color-deep-blue-500: #1616F5;
 
   --color-gray-100: #E1E0E1;
   --color-gray-250: #AFAEAF;
@@ -48,13 +48,17 @@
   --color-gray-900: #131213;
 
   --color-green-400: #66EF00;
+  --color-green-500: #16F516;
 
-  --color-magenta-500: #CD0AFE;
+  --color-yellow-500: #F5F516;
+
+  --color-magenta-500: #F516F5;
 
   --color-orange-400: #FFD433;
   --color-orange-500: #FEC50A;
 
   --color-red-400: #FE1131;
+  --color-red-500: #F51616;
 
   /* Fonts */
   --font-sans: "DM Sans", sans-serif;
@@ -96,17 +100,30 @@
   --text-small-12--line-height: 1rem;
   --text-small-12--font-weight: 500;
 
+  --text-small-11: 0.6875rem;
+  --text-small-11--line-height: 1rem;
+  --text-small-11--font-weight: 500;
+
   /* Shadows */
-  --shadow-small:  2px 2px 8px 0 #00000026;
+  --shadow-small: 2px 2px 8px 0 #00000026;
   --shadow-medium: 4px 4px 12px 0 #00000040;
 
   /* Spacing */
   --spacing-280: 70rem;
   --spacing-184: 46rem;
+  --spacing-144: 36rem;
+  --spacing-136: 34rem;
+  --spacing-128: 32rem;
+  --spacing-125: 31.25rem;
   --spacing-120: 30rem;
 
   /* Text Shadow */
   --text-shadow-hero: 0 4px 4px #00000040;
+
+  /* Radius */
+  --radius-4: 1rem;
+  --radius-6: 1.5rem;
+  --radius-8: 2rem;
 }
 
 @theme inline {
