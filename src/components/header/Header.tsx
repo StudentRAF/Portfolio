@@ -10,12 +10,12 @@ export interface HeaderProps {
 const Header = ({ className }: HeaderProps) => {
   return (
     <div className={cn(
-      "flex w-full py-6 px-12 justify-between items-center sticky top-0 z-50",
+      "flex max-w-480 w-full mx-auto py-6 px-12 justify-between items-center sticky top-0 z-50",
       className
     )}>
       <Profile className="w-120"/>
       <NavigationBar className="shrink-0"/>
-      <Links className="w-120"/>
+      <Links className="w-120 justify-end"/>
     </div>
   );
 }

@@ -109,6 +109,7 @@
   --shadow-medium: 4px 4px 12px 0 #00000040;
 
   /* Spacing */
+  --spacing-480: 120rem;
   --spacing-280: 70rem;
   --spacing-184: 46rem;
   --spacing-144: 36rem;

@@ -1,4 +1,4 @@
-import { cn } from "@/utils/utils.ts";
+import { cn, type OpenTarget } from "@/utils/utils.ts";
 import type { ReactNode } from "react";
 import ProjectPreview from "@/components/projects/ProjectPreview.tsx";
 import ProjectHeader from "@/components/projects/ProjectHeader.tsx";
@@ -15,7 +15,6 @@ export interface ProjectProps {
   children?: ReactNode;
 }
 
-type OpenTarget = "_blank" | "_self" | "_parent" | "_top";
 
 const Project = ({
   className,

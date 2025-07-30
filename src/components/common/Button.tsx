@@ -18,7 +18,7 @@ const buttonVariants = cva(
           "bg-transparent text-normal-14 text-gray-100"
       },
       size: {
-        default: "h-8 px-5 py-1.5",
+        default: "w-fit h-8 px-5 py-1.5",
       },
     },
     defaultVariants: {
