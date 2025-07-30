@@ -16,10 +16,16 @@ const Profile = ({ className }: ProfileProps) => {
       "max-sm:rounded-3 max-sm:px-5 max-sm:py-3",
       className
     )}>
-      <span className="w-fit text-gray-100 text-heading03-20 leading-6 self-center">
+      <span className={cn(
+        "w-fit text-gray-100 text-heading03-20 leading-6",
+        "max-lg:self-center"
+      )}>
         {application?.data?.author}
       </span>
-      <span className="w-fit text-gray-400 text-normal-14 leading-5 self-center">
+      <span className={cn(
+        "w-fit text-gray-400 text-normal-14 leading-5",
+        "max-lg:self-center"
+      )}>
         {application?.data?.title}
       </span>
     </div>
