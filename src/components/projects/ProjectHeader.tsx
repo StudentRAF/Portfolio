@@ -32,7 +32,10 @@ const ProjectHeader = ({ className, project }: ProjectHeaderProps) => {
           {project.technologies?.map((technology, index) => (
             <Badge
               key={index}
-              className="max-sm:text-small-11 max-sm:h-5 max-sm:px-3"
+              className={cn(
+                "max-sm:text-small-11 max-sm:h-5 max-sm:px-3",
+                project.repositoryUrl && "group-hover:cursor-pointer"
+              )}
             >
               {technology}
             </Badge>
