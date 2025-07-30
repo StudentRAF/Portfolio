@@ -16,6 +16,10 @@ const Projects = forwardRef<HTMLDivElement, ProjectsProps>(({ className }, ref) 
       ref={ref}
       className={cn(
         "flex flex-col items-center px-auto py-12 gap-16 scroll-mt-16",
+        "max-xl:px-10",
+        "max-lg:py-8 max-lg:scroll-mt-36",
+        "max-md:gap-12 max-md:px-8",
+        "max-sm:gap-8 max-sm:px-6 max-sm:py-4",
         className
       )}
     >

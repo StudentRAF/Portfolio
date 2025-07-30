@@ -11,21 +11,38 @@ const ProjectHeader = ({ className, project }: ProjectHeaderProps) => {
   return (
     <div className={cn(
       "flex flex-col gap-4 z-20",
+      "max-sm:gap-3",
       className
     )}>
-      <div className="flex gap-6 items-end">
-        <span className="text-heading03-24 text-gray-100">
+      <div className={cn(
+        "flex gap-6 items-end",
+        "max-lg:flex-col max-lg:items-start max-lg:gap-4",
+        "max-sm:gap-3",
+      )}>
+        <span className={cn(
+          "text-heading03-24 text-gray-100",
+          "max-sm:text-heading03-20"
+        )}>
           {project.name}
         </span>
-        <div className="flex flex-wrap gap-1.5">
+        <div className={cn(
+          "flex flex-wrap gap-1.5",
+          "max-sm:gap-1"
+        )}>
           {project.technologies?.map((technology, index) => (
-            <Badge key={index}>
+            <Badge
+              key={index}
+              className="max-sm:text-small-11 max-sm:h-5 max-sm:px-3"
+            >
               {technology}
             </Badge>
           ))}
         </div>
       </div>
-      <span className="text-normal-14 text-gray-400">
+      <span className={cn(
+        "text-normal-14 text-gray-400",
+        "max-sm:text-normal-13"
+      )}>
         {project.description}
       </span>
     </div>

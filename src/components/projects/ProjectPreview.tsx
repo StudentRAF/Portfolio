@@ -13,6 +13,8 @@ const ProjectPreview = ({ className, children, project }: ProjectPreviewProps) =
   return (
     <div className={cn(
       "flex flex-col w-full h-fit border border-gray-600 rounded-4 overflow-hidden",
+      "max-lg:rounded-3",
+      "max-sm:rounded-2",
       className
     )}>
       <ProjectPreviewHeader project={project}/>

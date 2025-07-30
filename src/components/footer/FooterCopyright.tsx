@@ -12,6 +12,7 @@ const FooterCopyright = ({ className }: FooterCopyrightProps) => {
   return (
     <span className={cn(
       "text-gray-400 text-normal-14",
+      "max-sm:text-normal-13",
       className
     )}>
       {application?.data?.copyright}
